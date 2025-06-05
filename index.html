@@ -2,190 +2,135 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>معايدة لأهالي مسحرة</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>معايدة قرية مسحرة</title>
   <style>
-    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Amiri', serif;
-      background: linear-gradient(135deg, #ffe6f0, #fff0f5, #fce4ec);
-      color: #4a235a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
+      background: linear-gradient(to bottom, #ffecd2 0%, #fcb69f 100%);
     }
 
-    .container {
-      background: #ffffffdd;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-      padding: 40px 30px;
-      max-width: 750px;
+    .banner {
+      background: #c0392b;
+      color: white;
+      padding: 20px;
       text-align: center;
-      border: 8px double #d81b60;
-      animation: fadeIn 1.5s ease-in-out;
-      position: relative;
-      z-index: 2;
+      font-size: 26px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      color: #d81b60;
-    }
-
-    p {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      line-height: 1.8;
-    }
-
-    .emoji {
-      font-size: 2em;
-      margin: 10px 0;
-      animation: pulse 2s infinite;
-    }
-
-    .special {
-      font-size: 1.3em;
-      color: #b71c1c;
-      background: #fff3f3;
-      padding: 12px;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border: 1px solid #d81b60;
-    }
-
-    .footer-bar {
-      position: absolute;
+    .scrolling {
+      background: #fff;
+      color: #c0392b;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px;
+      position: fixed;
       bottom: 0;
       width: 100%;
-      background: linear-gradient(to right, #d81b60, #f06292);
-      color: white;
-      font-size: 1.2em;
-      padding: 12px 0;
       overflow: hidden;
       white-space: nowrap;
-      z-index: 2;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+      z-index: 9999;
     }
 
-    .footer-bar span {
+    .scrolling span {
       display: inline-block;
-      padding-left: 100%;
-      animation: scroll 18s linear infinite;
-      font-weight: bold;
+      animation: scroll 15s linear infinite;
     }
 
     @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+      from { transform: translateX(100%); }
+      to   { transform: translateX(-100%); }
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    /* مفرقعات */
     canvas {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      z-index: 1;
       pointer-events: none;
+      z-index: 999;
     }
   </style>
 </head>
 <body>
+
+  <div class="banner">
+    🎉 كل عام وأنتم بخير أهالي قرية مسحرة الأعزاء! 🎉<br><br>
+    أطيب التمنيات لكم بمناسبة عيد الأضحى المبارك، أعاده الله علينا وعليكم بالخير واليمن والبركات 🌙✨<br><br>
+    وخصّ بالذكر:<br>
+    الأستاذ القدير إبراهيم الخبي 🌟<br>
+    والأستاذ منار دياب 🌹<br>
+    وعدنان المصطفى (أبو ريان) 🌸
+  </div>
+
+  <div class="scrolling">
+    <span>من محمد أمين دياب... محبة وتقديراً لأهلي وأحبتي في قرية مسحرة 💖💖💖</span>
+  </div>
+
   <canvas id="fireworks"></canvas>
 
-  <div class="container">
-    <div class="emoji">🌸💖✨🌺</div>
-    <h1>كل عام وأنتم بخير</h1>
-    <p>
-      إلى أهالي قرية <strong>مسحرة</strong> الأكارم،<br>
-      أطيب التمنيات لكم بحياة مليئة بالفرح والسكينة، وبمستقبل مزدهر يليق بكم وبقريتكم الطيبة 💖🌿<br>
-      أعاده الله عليكم بالخير واليُمن والبركات، ودوام الصحة والعافية والسعادة 🌟🎉<br>
-      دمتم سالمين مكرمين.
-    </p>
-
-    <div class="special">
-      🌟 وأخص بالذكر: <br>
-      🎓 <strong>الأستاذ القدير إبراهيم الخبي</strong> <br>
-      🎓 <strong>الأستاذ منار دياب</strong> <br>
-      💐 <strong>عدنان المصطفى (أبو ريان)</strong> <br>
-      لكم محبة خاصة وتحية من القلب ❤️
-    </div>
-
-    <div class="emoji">🎊🌷💐🎀</div>
-  </div>
-
-  <div class="footer-bar">
-    <span>💫 هذا الإهداء من محمد أمين دياب إلى أهالي قرية مسحرة الغالية 💖🌟 دمتم بخير ومحبة وسلام 🌸</span>
-  </div>
-
   <script>
-    // مفرقعات بسيطة
-    const canvas = document.getElementById("fireworks");
-    const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const particles = [];
-    function createFirework(x, y) {
-      for (let i = 0; i < 30; i++) {
-        particles.push({
-          x, y,
-          angle: Math.random() * 2 * Math.PI,
-          speed: Math.random() * 5 + 2,
-          radius: Math.random() * 2 + 1,
-          alpha: 1,
-          color: `hsl(${Math.random() * 360}, 100%, 60%)`
-        });
-      }
-    }
-
-    function updateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p, i) => {
-        p.x += Math.cos(p.angle) * p.speed;
-        p.y += Math.sin(p.angle) * p.speed;
-        p.alpha -= 0.015;
-        if (p.alpha <= 0) particles.splice(i, 1);
-        else {
-          ctx.globalAlpha = p.alpha;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = p.color;
-          ctx.fill();
-        }
-      });
-      ctx.globalAlpha = 1;
-      requestAnimationFrame(updateParticles);
-    }
-
-    setInterval(() => {
-      const x = Math.random() * canvas.width;
-      const y = Math.random() * canvas.height / 2;
-      createFirework(x, y);
-    }, 1200);
-
-    updateParticles();
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
+
+    function createFirework() {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height / 2;
+      const particles = [];
+      const colors = ['#FF3CAC', '#784BA0', '#2B86C5', '#FFD700', '#00FF7F', '#FF4500'];
+
+      for (let i = 0; i < 50; i++) {
+        const angle = Math.random() * 2 * Math.PI;
+        const speed = Math.random() * 4 + 1;
+        particles.push({
+          x, y,
+          dx: Math.cos(angle) * speed,
+          dy: Math.sin(angle) * speed,
+          alpha: 1,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+
+      fireworks.push(particles);
+    }
+
+    const fireworks = [];
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      fireworks.forEach((particles, i) => {
+        particles.forEach(p => {
+          p.x += p.dx;
+          p.y += p.dy;
+          p.alpha -= 0.01;
+          ctx.globalAlpha = p.alpha;
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        if (particles[0].alpha <= 0) fireworks.splice(i, 1);
+      });
+
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(animate);
+    }
+
+    setInterval(createFirework, 1500);
+    animate();
   </script>
+
 </body>
 </html>
