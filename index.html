@@ -8,22 +8,25 @@
     body {
       margin: 0;
       font-family: 'Amiri', serif;
-      background: linear-gradient(to right, #fff0f5, #ffe4e1);
+      background: linear-gradient(to right, #ffe6f0, #fff0f5);
       color: #4a235a;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
       overflow: hidden;
+      position: relative;
     }.card {
-  background-color: #ffffffdd;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  padding: 40px;
-  max-width: 600px;
+  background-color: #ffffffee;
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  padding: 50px 40px;
+  max-width: 700px;
   text-align: center;
-  border: 8px double #c71585;
+  border: 10px double #d63384;
+  z-index: 2;
   position: relative;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .card::before, .card::after {
@@ -31,39 +34,76 @@
   font-size: 2rem;
   position: absolute;
   animation: float 3s ease-in-out infinite;
+  color: #e91e63;
 }
 
 .card::before {
-  top: -20px;
-  left: 20px;
+  top: -25px;
+  left: 25px;
 }
 
 .card::after {
-  bottom: -20px;
-  right: 20px;
+  bottom: -25px;
+  right: 25px;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
-  font-size: 2.8em;
+  font-size: 3em;
   margin-bottom: 20px;
-  color: #a93226;
+  color: #c2185b;
 }
 
 p {
-  font-size: 1.6em;
-  line-height: 1.6;
-  margin: 0 0 20px;
+  font-size: 1.7em;
+  line-height: 1.7;
+  margin: 0 0 25px;
 }
 
 .decor {
-  font-size: 1.8em;
-  margin: 15px 0;
+  font-size: 2em;
+  margin: 20px 0;
   color: #d63384;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.marquee {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to right, #e91e63, #f06292);
+  color: white;
+  font-size: 1.4em;
+  padding: 12px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 18s linear infinite;
+  font-weight: bold;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
   </style>
@@ -72,9 +112,11 @@ p {
   <div class="card">
     <div class="decor">🌸💖🌟🎉💐</div>
     <h1>أجمل التهاني القلبية</h1>
-    <p>إلى أهالي قرية <strong>مسحرة</strong> الأعزاء،</p>
-    <p>كل عام وأنتم بخير، أعاده الله علينا وعليكم باليمن والبركة، وتقبل الله طاعاتكم وجعل أيامكم سعادة وهناء.</p>
+    <p>إلى أهالي قرية <strong>مسحرة</strong> الكرام،</p>
+    <p>كل عام وأنتم بألف خير، أعاده الله علينا وعليكم بالخير واليمن والبركات. دامت أفراحكم عامرة بالحب والسلام.</p>
     <div class="decor">🌹🎊✨🎀🌺</div>
+  </div>  <div class="marquee">
+    <span>💫 هذا الإهداء من محمد أمين دياب إلى أهلي وأحبتي في قرية مسحرة الغالية 💖🌟 دمتم بخير ومحبة وسلام 🌸💐</span>
   </div>
 </body>
 </html>
